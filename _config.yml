@@ -1,5 +1,5 @@
-title: "Half Fast Notes — Zine Starter"
-description: "A lightweight 90s zine-style starter for GitHub Pages."
+title: "Half Fast Notes"
+description: "A DevOps should be neither fast nor slow."
 baseurl: "" # change if served from a subpath
 url: ""     # set to your site URL if available
 theme: jekyll-theme-minimal
