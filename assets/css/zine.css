@@ -1,0 +1,151 @@
+/* zine-starter CSS: typography, texture, columns, halftone, torn edges */
+
+:root{
+  --paper: #fbf7ef;
+  --ink: #0b0b0b;
+  --accent1: #ff00a0; /* hot pink */
+  --accent2: #00f0ff; /* cyan */
+  --muted: #7a6f5a;
+  --max-width: 980px;
+}
+
+*{box-sizing:border-box}
+body.zine-root{
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Merriweather", Georgia, serif;
+  margin:0;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+/* Subtle paper noise overlay - replace image at assets/images/paper-noise.png */
+body.zine-root::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('/assets/images/paper-noise.png');
+  background-repeat: repeat;
+  opacity: .18;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  z-index: 9999;
+}
+
+.zine-header{
+  max-width: var(--max-width);
+  margin: 1.25rem auto;
+  padding: 0 1rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+}
+
+.site-title{
+  font-family: "Rubik Mono One", "Special Elite", sans-serif;
+  margin:0;
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+}
+
+.site-title a{ color: var(--ink); text-decoration:none; }
+
+.site-sub{
+  margin:0;
+  color: var(--muted);
+  font-size:0.9rem;
+}
+
+/* Main layout */
+.zine-main{
+  max-width: var(--max-width);
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
+}
+
+/* Hero */
+.zine-hero{
+  text-align:center;
+  margin-bottom: 1rem;
+}
+
+.hero-title{
+  font-family: "Special Elite", "Press Start 2P", monospace;
+  font-size: clamp(1.6rem, 5vw, 3rem);
+  margin:.2rem 0;
+  color: var(--accent1);
+  text-shadow: 2px 1px 0 rgba(0,0,0,0.06);
+}
+
+.hero-sub{ color:var(--muted); margin-top:0.25rem; }
+
+/* Columns for zine feel */
+.zine-columns{
+  column-count: 2;
+  column-gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Cards (like cutouts) */
+.zine-card{
+  display:inline-block;
+  width:100%;
+  background: white;
+  padding: 1rem;
+  margin: 0 0 1rem;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.08);
+  break-inside: avoid;
+  font-size: 0.95rem;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Torn-edge effect using SVG clip-path fallback to polygon */
+.zine-card.torn{
+  background: linear-gradient(0deg, #fff 0%, #fff 100%);
+  -webkit-clip-path: polygon(0 2%, 100% 0, 100% 92%, 98% 100%, 0 98%);
+  clip-path: polygon(0 2%, 100% 0, 100% 92%, 98% 100%, 0 98%);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Halftone accent block */
+.zine-card.halftone{
+  background-image: radial-gradient(circle at 20% 20%, rgba(0,0,0,0.06) 0.5px, transparent 0.6px);
+  background-size: 6px 6px;
+}
+
+/* Headings in cards */
+.zine-card h3{
+  font-family: "Rubik Mono One", "Special Elite", sans-serif;
+  margin: 0 0 .5rem;
+  font-size:1.05rem;
+  color: var(--ink);
+}
+
+/* Small visual defects for authenticity */
+.zine-card::after{
+  content: "";
+  display:block;
+  height: 6px;
+  width: 30%;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.02));
+  margin-top: .6rem;
+  opacity: .6;
+}
+
+/* Footer */
+.zine-footer{
+  max-width: var(--max-width);
+  margin: 2rem auto;
+  padding: 0 1rem 4rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width:720px){
+  .zine-columns{ column-count:1; }
+  .zine-header{ flex-direction:column; align-items:flex-start; gap:.5rem; }
+}

@@ -1,3 +1,22 @@
+title: "Half Fast Notes — Zine Starter"
+description: "A lightweight 90s zine-style starter for GitHub Pages."
+baseurl: "" # change if served from a subpath
+url: ""     # set to your site URL if available
 theme: jekyll-theme-minimal
-title: A Half-Fast Web Page
-description: We're All Half Fast
+markdown: kramdown
+
+plugins:
+  - jekyll-feed
+
+collections: {}
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# Assets path
+sass:
+  style: compressed
