@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ page.excerpt | strip_html | default: site.description }}">
+
+  <!-- Google Fonts chosen for zine vibe -->
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Press+Start+2P&family=Rubik+Mono+One&family=Merriweather:ital,wght@0,300;0,700;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ '/assets/css/zine.css' | relative_url }}">
+</head>
+<body class="zine-root">
+  <header class="zine-header">
+    <div class="zine-brand">
+      <h1 class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+      <p class="site-sub">{{ site.description }}</p>
+    </div>
+    <nav class="zine-nav">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/about' | relative_url }}">About</a>
+    </nav>
+  </header>
+
+  <main class="zine-main" role="main">
+    {{ content }}
+  </main>
+
+  <footer class="zine-footer">
+    <p>© {{ "now" | date: "%Y" }} {{ site.title }} — photocopied with love.</p>
+  </footer>
+
+  <!-- accessibility note: background overlays are pointer-events: none -->
+</body>
+</html>
