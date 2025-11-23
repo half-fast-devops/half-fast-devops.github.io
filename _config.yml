@@ -1,7 +1,7 @@
 title: "Half Fast Notes"
 description: "A DevOps should be neither fast nor slow."
 baseurl: "" # change if served from a subpath
-url: ""     # set to your site URL if available
+url: "https://half-fast-devops.github.io"     # set to your site URL if available
 theme: jekyll-theme-minimal
 markdown: kramdown
 
